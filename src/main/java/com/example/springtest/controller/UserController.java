@@ -31,6 +31,10 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
+    @GetMapping("/users")
+    public String getAllUsers() {
+        return "Get all users";
+    }
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorResponse> handle(UserNotFoundException exception){
         var errorResponse = new ErrorResponse(exception.getMessage());
